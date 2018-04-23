@@ -11,11 +11,10 @@ class UserController extends Controller
     	$user_id = $request->session()->get('user_id');
     	$user = DB::table('users')->where('ID','=',$user_id)->first();
     	if($user){
-    		echo $user->name;
+    		return view('dashboard',['user' => $user]);
     	}
     	else{
     		echo "error";
     	}
-    	//return view('dashboard');
     }
 }
